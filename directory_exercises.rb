@@ -1,3 +1,9 @@
+class String
+  def titleize
+    self.split(" ").map{|word| word.capitalize}.join(" ")
+  end
+end
+
 def input_students
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
@@ -18,7 +24,7 @@ end
 
 def print(students)
   students.each do |student|
-    if student[:name][0] == "G"
+    if student[:name].length < 12
       puts "#{student[:name]} (#{student[:cohort]} cohort)"
     end
   end
