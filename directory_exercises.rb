@@ -17,10 +17,19 @@ def input_students
       while !name.empty? do
         puts "What country were they born in?:"
           country = gets.chomp.titleize
+          if country == ""
+            break
+          end 
         puts "How tall are they (cm)?:"
           height = gets.chomp.titleize
+        if height == ""
+          break
+        end
         puts "What cohort are they in?:"
           cohort = gets.chomp.to_sym
+        if cohort == ""
+          break
+        end
         break
       end
     students << {name: name, country: country, height: height, cohort: cohort}
@@ -35,7 +44,7 @@ end
 
 def print(students)
   students.each.with_index(1) do |student, index|
-    puts "#{index}. #{student[:name]}, born in #{student[:country]}, #{student[:height]} cm (#{student[:cohort].capitalize} cohort)"
+    puts "#{index}. #{student[:name]}, born in #{student[:country]}, #{student[:height]} cm (#{student[:cohort]} cohort)"
   end
 end
 
