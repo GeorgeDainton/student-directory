@@ -33,6 +33,11 @@ def input_students
         break
       end
     students << {name: name, country: country, height: height, cohort: cohort}
+    if students.count == 1
+      puts "Now we have #{students.count} student"
+    elsif students.count > 1
+      puts "Now we have #{students.count} students"
+    end
   end
   students
 end
@@ -43,7 +48,7 @@ def print_header
 end 
 
 def print(students)
-  students.each.with_index(1) do |student, index|
+  students.map.with_index(1) do |student, index|
     puts "#{index}. #{student[:name]}, born in #{student[:country]}, #{student[:height]} cm (#{student[:cohort]} cohort)".center(20)
   end
 end
